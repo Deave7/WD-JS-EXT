@@ -76,3 +76,7 @@ body {
 .show {
     display: flex;
 }
+
+.matched {
+    background-color: green;
+}
