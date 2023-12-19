@@ -21,7 +21,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #f8f5f2;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 h3 {
@@ -94,6 +94,10 @@ p {
     display: none;
 }
 
+#adv-search-section {
+    display: none;
+}
+
 
 .input-button {
     background-color: #078080;
@@ -114,4 +118,11 @@ p {
 
 .search-result-list {
     list-style: none;
+}
+
+#adv-search-section > article > button {
+    margin-top: 1rem;
+}
+#search-section > article > button {
+    margin-top: 1rem;
 }

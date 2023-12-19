@@ -74,6 +74,7 @@ const searchSection = document.getElementById('search-section') as HTMLElement
 const inputField = document.querySelector('.input-field') as HTMLInputElement
 const inputButton = document.querySelector('.input-button') as HTMLElement
 const searchResultList = document.querySelector('.search-result-list') as HTMLElement
+const advSearchResultList = document.querySelector('.adv-search-result-list') as HTMLElement
 const mainSeeMoreButton = document.querySelector('#card-section > article > button.button.see-more-button') as HTMLElement
 const description = document.querySelector('.description') as HTMLElement
 const aBV = document.querySelector('.abv') as HTMLElement
@@ -83,6 +84,16 @@ const hops = document.querySelector('.hops') as HTMLElement
 const foodPairing = document.querySelector('.food-pairing') as HTMLElement
 const brewersTips = document.querySelector('.brewers-tips') as HTMLElement
 const seeMoreSection = document.getElementById('see-more-section') as HTMLElement
+const advSearchButton = document.querySelector('.adv-search-button')
+const showAdvSearchButton = document.querySelector('.show-adv-search') as HTMLButtonElement
+const advSearchSection = document.getElementById('adv-search-section') as HTMLElement
+const advInputField = document.querySelector('.adv-input-field') as HTMLInputElement
+const hopsInputField = document.querySelector('.hops-input-field') as HTMLInputElement
+const maltInputField = document.querySelector('.malt-input-field') as HTMLInputElement
+const bbInputField = document.querySelector('.bb-input-field') as HTMLInputElement
+const baInputField = document.querySelector('.ba-input-field') as HTMLInputElement
+const abvgInputField = document.querySelector('.abvg-input-field') as HTMLInputElement
+const abvlInputField = document.querySelector('.abvl-input-field') as HTMLInputElement
 
 let fetchedData: Beer[] = []
 
@@ -108,6 +119,17 @@ getBeer().then(() => {
     })
     inputButton.addEventListener('click', function(event) {
         searchBeer(fetchedData)
+    })
+    advSearchButton.addEventListener('click', function(event) {
+        advSearch(fetchedData)
+    })
+    
+
+    showAdvSearchButton.addEventListener('click', function(event) {
+        cardSection.style.display = 'none'
+        searchSection.style.display = 'none'
+        seeMoreSection.style.display = 'none'
+        advSearchSection.style.display = 'flex'
     })
 
     seeMoreButton.addEventListener('click', function(event) {
@@ -147,6 +169,10 @@ searchMenuButton.addEventListener('click', function(event) {
     seeMoreSection.style.display= 'none'
     searchSection.style.display = 'flex'
 
+    while(searchResultList.firstChild) {
+        searchResultList.removeChild(searchResultList.firstChild)
+    }
+
 })
 
 homeButton.addEventListener('click', function(event) {
@@ -183,6 +209,66 @@ function searchBeer(data: Beer[]) : void {
                 const target = event.currentTarget as HTMLButtonElement
                 const beerName = target.textContent
                 searchSection.style.display = 'none'
+                seeMoreSection.style.display = 'flex'
+                seeMore(data, beerName);
+            });
+        }
+    }
+}
+function advSearch(data: Beer[]) : void {
+    const nameValue: string = advInputField.value.toLowerCase()
+    advInputField.value = ''
+    const hopsValue: string = hopsInputField.value.toLowerCase()
+    hopsInputField.value = ''
+    const maltValue: string = maltInputField.value.toLowerCase()
+    maltInputField.value = ''
+    const bbValue: string = bbInputField.value.toLowerCase()
+    bbInputField.value = ''
+    const baValue: string = baInputField.value.toLowerCase()
+    baInputField.value = ''
+    const abvgValue: string = abvgInputField.value.toLowerCase()
+    abvgInputField.value = ''
+    const abvlValue: string = abvlInputField.value.toLowerCase()
+    abvlInputField.value = ''
+
+    const searchResult = data.filter(beer => {
+        const matchesName = !nameValue || beer.name.toLowerCase().includes(nameValue)
+        const matchesHops = !hopsValue || beer.ingredients.hops.some(hop => hop.name.toLowerCase().includes(hopsValue))
+        const matchesMalt = !maltValue || beer.ingredients.malt.some(malt => malt.name.toLowerCase().includes(maltValue))
+        const brewedDate = new Date(beer.first_brewed)
+        const brewedBefore = !bbValue || (new Date(bbValue)).getTime() > brewedDate.getTime()
+        const brewedAfter = !baValue || (new Date(baValue)).getTime() < brewedDate.getTime()
+        const abvGreater = !abvgValue || beer.abv > Number(abvgValue)
+        const abvLess = !abvlValue || beer.abv < Number(abvlValue)
+
+        return matchesName && matchesHops && matchesMalt && brewedBefore && brewedAfter && abvGreater && abvLess;
+    })
+        
+    
+    while(advSearchResultList.firstChild) {
+        advSearchResultList.removeChild(advSearchResultList.firstChild)
+    }
+
+    if (searchResult.length === 0) {
+        alert('Your search did not find any results')
+    }
+    else {
+        const resultLimit = Math.min(10, searchResult.length)
+        for (let i = 0; i < resultLimit; i++) {
+            const li = document.createElement('li')
+            const button = document.createElement('button')
+            button.classList.add('input-button')
+            button.classList.add('see-more-button')
+            button.classList.add('beer-name')
+            button.textContent = searchResult[i].name
+            li.appendChild(button)
+            advSearchResultList.appendChild(li)
+
+            button.addEventListener('click', function(event) {
+                const target = event.currentTarget as HTMLButtonElement
+                const beerName = target.textContent
+                searchSection.style.display = 'none'
+                advSearchSection.style.display = 'none'
                 seeMoreSection.style.display = 'flex'
                 seeMore(data, beerName);
             });
