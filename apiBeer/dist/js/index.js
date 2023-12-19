@@ -12,7 +12,8 @@ const randomButton = document.getElementById('random-button');
 const beerCard = document.querySelector('card');
 const beerImages = document.querySelectorAll('.beer-image');
 const beerNames = document.querySelectorAll('.beer-name');
-const seeMoreButton = document.querySelectorAll('.see-more-button');
+const seeMoreButton = document.getElementById('see-more-button');
+const seeMoreButtons = document.querySelectorAll('.see-more-button');
 const homeButton = document.getElementById('home-button');
 const searchMenuButton = document.getElementById('search-menu-button');
 const cardSection = document.getElementById('card-section');
@@ -28,31 +29,15 @@ const ingredients = document.querySelector('.ingredients');
 const hops = document.querySelector('.hops');
 const foodPairing = document.querySelector('.food-pairing');
 const brewersTips = document.querySelector('.brewers-tips');
+const seeMoreSection = document.getElementById('see-more-section');
+let fetchedData = [];
 function getBeer() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield fetch(beerURL);
             if (response.status === 200) {
                 const data = yield response.json();
-                randomButton.addEventListener('click', function (event) {
-                    randomBeer(data);
-                });
-                inputButton.addEventListener('click', function (event) {
-                    searchBeer(data);
-                });
-                seeMoreButton.forEach(button => {
-                    addEventListener('click', function (event) {
-                        const target = event.target;
-                        const card = target.closest('.card');
-                        if (card) {
-                            const beerNameElement = card.querySelector('.beer-name');
-                            if (beerNameElement) {
-                                const beerName = beerNameElement.textContent;
-                                seeMore(data, beerName);
-                            }
-                        }
-                    });
-                });
+                fetchedData = data;
             }
             else {
                 throw Error('Something went wrong, try again later');
@@ -63,6 +48,28 @@ function getBeer() {
         }
     });
 }
+getBeer().then(() => {
+    randomButton.addEventListener('click', function (event) {
+        randomBeer(fetchedData);
+    });
+    inputButton.addEventListener('click', function (event) {
+        searchBeer(fetchedData);
+    });
+    seeMoreButton.addEventListener('click', function (event) {
+        const eventTarget = event.currentTarget;
+        const closestCard = eventTarget.closest('.card');
+        if (closestCard) {
+            const beerNameElement = closestCard.querySelector('.beer-name');
+            if (beerNameElement) {
+                const beerName = beerNameElement.textContent;
+                cardSection.style.display = 'none';
+                searchSection.style.display = 'none';
+                seeMoreSection.style.display = 'flex';
+                seeMore(fetchedData, beerName);
+            }
+        }
+    });
+});
 function randomBeer(data) {
     const randomBeer = data[Math.floor(Math.random() * data.length)];
     beerImages.forEach(element => {
@@ -73,10 +80,15 @@ function randomBeer(data) {
     });
     mainSeeMoreButton.style.display = 'inline';
 }
-getBeer();
 searchMenuButton.addEventListener('click', function (event) {
     cardSection.style.display = 'none';
+    seeMoreSection.style.display = 'none';
     searchSection.style.display = 'flex';
+});
+homeButton.addEventListener('click', function (event) {
+    cardSection.style.display = 'flex';
+    seeMoreSection.style.display = 'none';
+    searchSection.style.display = 'none';
 });
 function searchBeer(data) {
     const searchValue = inputField.value.toLowerCase();
@@ -99,13 +111,18 @@ function searchBeer(data) {
             button.textContent = searchResult[i].name;
             li.appendChild(button);
             searchResultList.appendChild(li);
+            button.addEventListener('click', function (event) {
+                const target = event.currentTarget;
+                const beerName = target.textContent;
+                searchSection.style.display = 'none';
+                seeMoreSection.style.display = 'flex';
+                seeMore(data, beerName);
+            });
         }
     }
 }
 function seeMore(data, beerName) {
     const beer = data.find(beer => beer.name === beerName);
-    console.log(beerName);
-    console.log(beer);
     beerImages.forEach(element => {
         element.src = beer.image_url;
     });
@@ -115,7 +132,7 @@ function seeMore(data, beerName) {
     description.textContent = `Description: ${beer.description}`;
     aBV.textContent = `Alcohol by volume: ${beer.abv}\n`;
     volume.textContent = `Volume: ${beer.volume.value} ${beer.volume.unit}\n`;
-    ingredients.textContent = `Ingredients: Malt: ${beer.ingredients.malt[0].name}\n Hops:${beer.ingredients.hops[0].name}\n`;
+    ingredients.textContent = `Ingredients: Malt: ${beer.ingredients.malt[0].name}\n Hops: ${beer.ingredients.hops[0].name}\n`;
     foodPairing.textContent = `Food Pairing: ${beer.food_pairing}\n`;
     brewersTips.textContent = `Brewer's tips: ${beer.brewers_tips}\n`;
 }

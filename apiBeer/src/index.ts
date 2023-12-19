@@ -65,7 +65,8 @@ const randomButton = document.getElementById('random-button') as HTMLElement
 const beerCard = document.querySelector('card') as HTMLElement
 const beerImages = document.querySelectorAll('.beer-image') as NodeListOf<HTMLImageElement>;
 const beerNames = document.querySelectorAll('.beer-name') as NodeListOf<HTMLElement>;
-const seeMoreButton = document.querySelectorAll('.see-more-button') as NodeList
+const seeMoreButton = document.getElementById('see-more-button') as HTMLElement
+const seeMoreButtons = document.querySelectorAll('.see-more-button') as NodeList
 const homeButton = document.getElementById('home-button') as HTMLElement
 const searchMenuButton = document.getElementById('search-menu-button') as HTMLElement
 const cardSection = document.getElementById('card-section') as HTMLElement
@@ -81,37 +82,16 @@ const ingredients = document.querySelector('.ingredients') as HTMLElement
 const hops = document.querySelector('.hops') as HTMLElement
 const foodPairing = document.querySelector('.food-pairing') as HTMLElement
 const brewersTips = document.querySelector('.brewers-tips') as HTMLElement
+const seeMoreSection = document.getElementById('see-more-section') as HTMLElement
 
+let fetchedData: Beer[] = []
 
 async function getBeer() {
     try {
         const response = await fetch(beerURL)
         if (response.status === 200) {
             const data: Beer[] = await response.json();
-
-            randomButton.addEventListener('click', function(event) {
-                randomBeer(data)
-            })
-            inputButton.addEventListener('click', function(event) {
-                searchBeer(data)
-            })
-
-            seeMoreButton.forEach(button => {
-                addEventListener('click', function(event) {
-                    const target = event.target as HTMLElement
-                    const card = target.closest('.card') as HTMLElement | null
-                    if (card) {
-                        const beerNameElement = card.querySelector('.beer-name') as HTMLElement | null;
-                        if (beerNameElement) {
-                            const beerName = beerNameElement.textContent;
-                            seeMore(data, beerName);
-                        }
-                    }
-    
-
-                })
-            })
-            
+            fetchedData = data
         }
         else {
             throw Error('Something went wrong, try again later')
@@ -121,6 +101,33 @@ async function getBeer() {
         console.log(error)
     }
 }
+
+getBeer().then(() => {
+    randomButton.addEventListener('click', function(event) {
+        randomBeer(fetchedData)
+    })
+    inputButton.addEventListener('click', function(event) {
+        searchBeer(fetchedData)
+    })
+
+    seeMoreButton.addEventListener('click', function(event) {
+        const eventTarget = event.currentTarget as Element
+        const closestCard = eventTarget.closest('.card')
+        
+        if (closestCard) {
+            const beerNameElement = closestCard.querySelector('.beer-name')
+
+            if (beerNameElement) {
+                const beerName = beerNameElement.textContent;
+                cardSection.style.display = 'none'
+                searchSection.style.display = 'none'
+                seeMoreSection.style.display = 'flex'
+                seeMore(fetchedData, beerName)
+            }
+        }
+        
+    })
+})
 
 function randomBeer(data: Beer[]) : void {
     const randomBeer = data[Math.floor(Math.random() * data.length)]
@@ -133,15 +140,22 @@ function randomBeer(data: Beer[]) : void {
     mainSeeMoreButton.style.display = 'inline'
 }
 
-getBeer();
 
-searchMenuButton.addEventListener('click', function(event): void {
+
+searchMenuButton.addEventListener('click', function(event) {
     cardSection.style.display = 'none'
+    seeMoreSection.style.display= 'none'
     searchSection.style.display = 'flex'
 
 })
 
-function searchBeer(data) : void {
+homeButton.addEventListener('click', function(event) {
+    cardSection.style.display = 'flex'
+    seeMoreSection.style.display = 'none'
+    searchSection.style.display = 'none'
+})
+
+function searchBeer(data: Beer[]) : void {
     const searchValue = inputField.value.toLowerCase()
     inputField.value = ''
     const searchResult = data.filter(element => element.name.toLowerCase().includes(searchValue))
@@ -164,15 +178,20 @@ function searchBeer(data) : void {
             button.textContent = searchResult[i].name
             li.appendChild(button)
             searchResultList.appendChild(li)
+
+            button.addEventListener('click', function(event) {
+                const target = event.currentTarget as HTMLButtonElement
+                const beerName = target.textContent
+                searchSection.style.display = 'none'
+                seeMoreSection.style.display = 'flex'
+                seeMore(data, beerName);
+            });
         }
     }
-
 }
 
-function seeMore(data, beerName): void {
+function seeMore(data: Beer[], beerName: string): void {
     const beer = data.find(beer => beer.name === beerName)
-    console.log(beerName)
-    console.log(beer)
     beerImages.forEach(element => {
         element.src = beer.image_url
     })
