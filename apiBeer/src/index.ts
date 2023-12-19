@@ -215,6 +215,7 @@ function searchBeer(data: Beer[]) : void {
         }
     }
 }
+
 function advSearch(data: Beer[]) : void {
     const nameValue: string = advInputField.value.toLowerCase()
     advInputField.value = ''
