@@ -137,11 +137,12 @@ section {
 
 footer {
     background-image: url('./assets/footer-map-bg.png');
+    background-size: cover;
     height: 34rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    
+    padding-left: 50rem;
     
 
    .container {
@@ -150,5 +151,34 @@ footer {
     background-color: $color-backround-secondary;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+
+    h2 {
+        font-size: 53px;
+    }
+
+    h3 {
+        color: #222222CC;
+        font-size: 22px;
+    }
+
+    p {
+        color: #22222299;
+        font-size: 14px;
+        padding-bottom: 1rem;
+    }
+
+    div {
+        display: flex;
+        gap: 1rem;
+
+        p {
+            color: #222222;
+        }
+    }
    }
 }

@@ -125,10 +125,12 @@ section .collection-card-container div button {
 
 footer {
   background-image: url("./assets/footer-map-bg.png");
+  background-size: cover;
   height: 34rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  padding-left: 50rem;
 }
 footer .container {
   width: 27rem;
@@ -136,6 +138,30 @@ footer .container {
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+footer .container h2 {
+  font-size: 53px;
+}
+footer .container h3 {
+  color: rgba(34, 34, 34, 0.8);
+  font-size: 22px;
+}
+footer .container p {
+  color: rgba(34, 34, 34, 0.6);
+  font-size: 14px;
+  padding-bottom: 1rem;
+}
+footer .container div {
+  display: flex;
+  gap: 1rem;
+}
+footer .container div p {
+  color: #222222;
 }
 
 /*# sourceMappingURL=style.css.map */
