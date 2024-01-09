@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Overpass&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Fira Sans", sans-serif;
+}
+
+body {
+  background-color: #EEE;
+  height: 100vh;
+}
+
+.navigation {
+  background-color: #EEE;
+}
+.navigation nav {
+  padding: 1rem 2rem 4rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation nav ul {
+  display: flex;
+  gap: 4rem;
+}
+.navigation nav ul li {
+  list-style: none;
+}
+.navigation nav button {
+  border-radius: 3px;
+  border: 1px solid #000;
+  width: 9rem;
+  height: 2.5rem;
+}
+
+main {
+  background-color: #EEE;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 31rem;
+  margin: auto;
+  text-align: center;
+}
+main div {
+  display: flex;
+  gap: 32px;
+}
+
+section {
+  background-color: #fff;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section h2 {
+  font-size: 3rem;
+}
+section .card-container {
+  display: flex;
+  gap: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+section .card-container div {
+  width: 16rem;
+  height: 24rem;
+  background-color: #EEE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+}
+section .card-container div p {
+  padding-top: 9rem;
+  padding-bottom: 0.25rem;
+}
+section .collection-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+section .collection-card-container div {
+  width: 34rem;
+  height: 22rem;
+  background-color: #343332;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 6rem;
+  margin-bottom: 7rem;
+}
+section .collection-card-container div h2 {
+  color: white;
+  font-size: 32px;
+}
+section .collection-card-container div h3 {
+  color: rgba(255, 255, 255, 0.501);
+  font-size: 16px;
+  font-weight: 200;
+  padding-bottom: 2rem;
+}
+section .collection-card-container div button {
+  width: 9rem;
+  height: 2.5rem;
+  background-color: #343332;
+  box-shadow: none;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+footer {
+  background-image: url("./assets/footer-map-bg.png");
+  height: 34rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+footer .container {
+  width: 27rem;
+  height: 26rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=style.css.map */

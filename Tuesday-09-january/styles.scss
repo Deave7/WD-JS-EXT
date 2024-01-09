@@ -1,0 +1,30 @@
+@import "colors";
+@import "fonts";
+@import "mixins";
+@import "./base/base";
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: $color-primary-dark;
+}
+
+nav {
+  background-color: $color-primary-light; 
+  display: flex;
+  justify-content: center;
+
+    ul {
+        list-style: none;
+        display: flex;
+
+        li {
+            margin: 1rem;   
+        }
+    }
+    
+    a {
+        @include style-link-text($color-primary)
+    }
+}
