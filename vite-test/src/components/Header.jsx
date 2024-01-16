@@ -1,4 +1,5 @@
 const Header = () => {
-    return <h1>{import.meta.env.VITE_APP_URL}</h1>
+    const baseURL = import.meta.env.VITE_APP_URL
+    return <h1>{baseURL}</h1>
 };
 export default Header
