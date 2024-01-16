@@ -1,0 +1,7 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="image-outline 1" opacity="0.4">
+<path id="Vector" d="M104 20H24C17.3726 20 12 25.3726 12 32V96C12 102.627 17.3726 108 24 108H104C110.627 108 116 102.627 116 96V32C116 25.3726 110.627 20 104 20Z" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+<path id="Vector_2" d="M84 52C88.4183 52 92 48.4183 92 44C92 39.5817 88.4183 36 84 36C79.5817 36 76 39.5817 76 44C76 48.4183 79.5817 52 84 52Z" stroke="black" stroke-width="3" stroke-miterlimit="10"/>
+<path id="Vector_3" d="M56 108L86.835 77.165C88.2452 75.752 90.1327 74.9173 92.1268 74.8248C94.1209 74.7323 96.0776 75.3886 97.6125 76.665L116 92M76 83.9475L53.335 61.325C51.8928 59.8831 49.9543 59.0464 47.9157 58.986C45.8772 58.9256 43.8926 59.646 42.3675 61L12 88L76 83.9475Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
