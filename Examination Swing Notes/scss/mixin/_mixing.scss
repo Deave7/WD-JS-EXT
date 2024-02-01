@@ -1,0 +1,17 @@
+@mixin list-mix {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin set-font($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin flex-settings($flex: flex, $direction: row, $justify: flex-start, $align: stretch) {
+    display: $flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}

@@ -1,0 +1,61 @@
+@use '../abstracts/colors' as color;
+@use '../mixin/mixing' as mixin;
+.list {
+    height: 100%;
+    @include mixin.flex-settings(flex, column, center, center);
+
+    ul {
+        @include mixin.flex-settings(flex, column);
+        gap: 2rem;
+    }
+
+    li {
+        min-width: 30rem;
+        background-color: color.$backround-light;
+        border-radius: 0.3rem;
+        @include mixin.flex-settings(flex, row, center, center);
+        @include mixin.list-mix;
+        
+        .note-top {
+            color: color.$text-dark-secondary;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .note-info {
+            textarea {
+                resize: none;
+                border: none;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .note-bottom {
+
+            div {
+                @include mixin.flex-settings(flex, row, space-between, center);
+                margin-bottom: 1rem;
+                
+            .flex-container-1 {
+                gap: 1rem;
+                p {
+                    @include mixin.set-font(1.5rem,900);
+                    font-style: italic;
+                }
+            }
+
+            .flex-container-2 {
+                gap: 1rem;
+                button {
+                    border: none;
+                    min-height: 2.5rem;
+                    min-width: 6rem;
+                    
+                }
+            }
+            }
+
+        }
+    }
+}

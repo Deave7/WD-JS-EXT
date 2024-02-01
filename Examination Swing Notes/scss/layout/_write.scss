@@ -1,0 +1,44 @@
+@use '../abstracts/colors' as color;
+@use '../mixin/mixing' as mixin;
+.write {
+    height: 100%;
+    @include mixin.flex-settings(flex, column, center, center);
+    
+    
+    .note-field {
+        min-width: 25rem;
+        min-height: 30rem;
+        padding: 1rem;
+        font-family: 'PT Sans', sans-serif;
+        margin-bottom: 3rem;
+        border: none;
+        resize: none;
+    }
+
+    div {
+
+        p {
+            color: color.$text-light;
+            letter-spacing: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        input {
+            background-color: #00000000;
+            border: 0.1rem solid color.$text-light;
+            border-radius: 0.3rem;
+            min-width: 25rem;
+            min-height: 4rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    button {
+        min-width: 25rem;
+        min-height: 4rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        border: none;
+    }
+}

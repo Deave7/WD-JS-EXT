@@ -1,0 +1,33 @@
+@use '../abstracts/colors' as color;
+@use '../mixin/mixing' as mixin;
+header {
+    @include mixin.flex-settings(flex, row, space-between, center);
+    background-color: color.$primary;
+    gap: 1rem;
+    height: 5rem;
+    
+
+    h1 {
+        margin-left: 1rem;
+
+    }
+    
+    ul {
+        gap: 2rem;
+        @include mixin.list-mix;
+        @include mixin.flex-settings(flex, row, center, center);
+        
+        
+        li {
+            margin-right: 1rem;
+            button {
+                min-width: 10rem;
+                font-size: 1.4rem;
+                font-weight: 700;
+                border: 0.1rem color.$backround solid;
+                padding: 0.5rem;
+            }
+
+        }
+    }
+}

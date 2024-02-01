@@ -1,0 +1,27 @@
+@use '../abstracts/colors' as color;
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html {
+    font-size: 62.5%;
+    font-family: "PT Sans", sans-serif;
+ }
+ 
+ html,
+ body {
+    min-height: 100vh;
+    height: 100%;
+    background-color: color.$backround;
+    overflow: hidden;
+ }
+ 
+ .hidden {
+    display: none !important;
+ }
+ 
+ button {
+    cursor: pointer;
+ }
+ 
+ h1 {
+    letter-spacing: 3px;
+ }
+ 

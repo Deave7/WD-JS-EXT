@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swing Notes</title>
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Swing Notes</h1>
+      <ul>
+        <li></li>
+        <li><button class="button">LIST</button></li>
+        <li><button class="button">WRITE</button></li>
+      </ul>
+    </header>
+
+    <section class="list hidden">
+      <ul class="note-list">
+        <li>
+          <article class="note">
+            <section class="note-top">
+              <p class="date">monday 3 Nov</p>
+            </section>
+
+            <section class="note-info">
+              <textarea cols="33" rows="8"></textarea>
+            </section>
+
+            <section class="note-bottom">
+              <div>
+                <div class="flex-container-1">
+                  <img src="./assets/Rectangle 3.svg" alt="line">
+                  <p class="author">Author</p>
+                </div>
+                <div class="flex-container-2">
+                  <button class="button">Update</button>
+                  <button class="button">Remove</button>
+                </div>
+              </div>
+            </section>
+          </article>
+        </li>
+       
+      </ul>
+    </section>
+
+    <section class="write">
+      <textarea class="note-field" cols="30" rows="10" placeholder="Write your note here.."></textarea>
+      <div>
+        <p>Username</p>
+        <input type="text" class="username-input">
+      </div>
+      <button class="button">Publish</button>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

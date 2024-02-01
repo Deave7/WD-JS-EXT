@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+html {
+  font-size: 62.5%;
+  font-family: "PT Sans", sans-serif;
+}
+
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #19274A;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+h1,
+h2,
+p {
+  pointer-events: none;
+}
+
+.button {
+  background-color: #EF4343;
+  border-radius: 0.3rem;
+}
+
+.button:hover {
+  background-color: #19274A;
+  color: #EF4343;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EF4343;
+  gap: 1rem;
+  height: 5rem;
+}
+header h1 {
+  margin-left: 1rem;
+}
+header ul {
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header ul li {
+  margin-right: 1rem;
+}
+header ul li button {
+  min-width: 10rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border: 0.1rem #19274A solid;
+  padding: 0.5rem;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2rem;
+}
+.list li {
+  min-width: 30rem;
+  background-color: #FFFFFF;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li .note-top {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.list li .note-info textarea {
+  resize: none;
+  border: none;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.list li .note-bottom div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.list li .note-bottom div .flex-container-1 {
+  gap: 1rem;
+}
+.list li .note-bottom div .flex-container-1 p {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-style: italic;
+}
+.list li .note-bottom div .flex-container-2 {
+  gap: 1rem;
+}
+.list li .note-bottom div .flex-container-2 button {
+  border: none;
+  min-height: 2.5rem;
+  min-width: 6rem;
+}
+
+.write {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.write .note-field {
+  min-width: 25rem;
+  min-height: 30rem;
+  padding: 1rem;
+  font-family: "PT Sans", sans-serif;
+  margin-bottom: 3rem;
+  border: none;
+  resize: none;
+}
+.write div p {
+  color: #ffffff;
+  letter-spacing: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+.write div input {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.1rem solid #ffffff;
+  border-radius: 0.3rem;
+  min-width: 25rem;
+  min-height: 4rem;
+  margin-bottom: 2rem;
+}
+.write button {
+  min-width: 25rem;
+  min-height: 4rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  border: none;
+}
+
+/*# sourceMappingURL=style.css.map */
