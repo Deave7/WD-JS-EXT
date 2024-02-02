@@ -7,52 +7,62 @@
     <link rel="stylesheet" href="./src/style.css">
   </head>
   <body>
-    <header>
-      <h1>Swing Notes</h1>
+
+    <section class="loading">
+      <div>
+        <h1>Swing Notes</h1>
+        <p>Welcome! <br> Please use this app to create notes for yourself!</p>
+        <button id="start-btn" class="button">Start</button>
+      </div>
+    </section>
+
+    <header class="header hidden">
+      <h2>Swing Notes</h2>
       <ul>
         <li></li>
-        <li><button class="button">LIST</button></li>
-        <li><button class="button">WRITE</button></li>
+        <li><button id="list-header-btn" class="button">LIST</button></li>
+        <li><button class="write-btn button">WRITE</button></li>
       </ul>
     </header>
 
+
     <section class="list hidden">
       <ul class="note-list">
-        <li>
+        <li id="1">
           <article class="note">
-            <section class="note-top">
+            <div class="note-top">
               <p class="date">monday 3 Nov</p>
-            </section>
+            </div>
 
-            <section class="note-info">
+            <div class="note-info">
               <textarea cols="33" rows="8"></textarea>
-            </section>
+            </div>
 
-            <section class="note-bottom">
+            <div class="note-bottom">
               <div>
                 <div class="flex-container-1">
                   <img src="./assets/Rectangle 3.svg" alt="line">
                   <p class="author">Author</p>
                 </div>
                 <div class="flex-container-2">
-                  <button class="button">Update</button>
-                  <button class="button">Remove</button>
+                  <button class="button update-btn">Update</button>
+                  <button class="button remove-btn">Remove</button>
                 </div>
               </div>
-            </section>
+            </div>
           </article>
         </li>
-       
       </ul>
+      <div class="write-btn"><img src="assets/pen.svg" height="30px" alt="pen"></div>
     </section>
 
-    <section class="write">
+    <section class="write hidden">
       <textarea class="note-field" cols="30" rows="10" placeholder="Write your note here.."></textarea>
       <div>
         <p>Username</p>
         <input type="text" class="username-input">
       </div>
-      <button class="button">Publish</button>
+      <button id="publish-btn" class="button">Publish</button>
     </section>
 
     <script type="module" src="/src/main.ts"></script>

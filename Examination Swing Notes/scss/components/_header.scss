@@ -1,5 +1,5 @@
 @use '../abstracts/colors' as color;
-@use '../mixin/mixing' as mixin;
+@use '../mixin/mixin' as mixin;
 header {
     @include mixin.flex-settings(flex, row, space-between, center);
     background-color: color.$primary;
@@ -7,7 +7,7 @@ header {
     height: 5rem;
     
 
-    h1 {
+    h2 {
         margin-left: 1rem;
 
     }

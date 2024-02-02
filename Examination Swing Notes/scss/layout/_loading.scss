@@ -1,0 +1,36 @@
+@use '../mixin/mixin' as mixin;
+@use '../abstracts/colors' as color;
+
+.loading {
+    @include mixin.flex-settings(flex, row, center, center);
+    height: 100%;
+    
+
+    div {
+        @include mixin.flex-settings(flex, column, center, center);
+        background-color: color.$primary;
+        gap: 2rem;
+        padding: 1rem;
+        border-radius: 1rem;
+
+        h1 {
+            @include mixin.set-font(5rem,700);
+        }
+
+        p {
+            @include mixin.set-font(2rem,400);
+            font-style: italic;
+            text-align: center;
+        }
+
+        button {
+            @include mixin.set-font(2rem,800);
+            width: 30rem;
+            height: 5rem;
+            border-radius: 1rem;
+            border: none;
+            background-color: color.$backround;
+            color: color.$text-light;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 @use '../abstracts/colors' as color;
-@use '../mixin/mixing' as mixin;
+@use '../mixin/mixin' as mixin;
 .list {
     height: 100%;
     @include mixin.flex-settings(flex, column, center, center);
@@ -7,6 +7,17 @@
     ul {
         @include mixin.flex-settings(flex, column);
         gap: 2rem;
+    }
+
+    .write-btn {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        @include mixin.flex-settings(flex, row, center, center);
+        height: 5rem;
+        width: 5rem;
+        background-color: color.$primary;
+        border-radius: 50%;
     }
 
     li {

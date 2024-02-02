@@ -1,5 +1,5 @@
 @use '../abstracts/colors' as color;
-@use '../mixin/mixing' as mixin;
+@use '../mixin/mixin' as mixin;
 .write {
     height: 100%;
     @include mixin.flex-settings(flex, column, center, center);

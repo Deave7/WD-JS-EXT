@@ -58,7 +58,7 @@ header {
   gap: 1rem;
   height: 5rem;
 }
-header h1 {
+header h2 {
   margin-left: 1rem;
 }
 header ul {
@@ -95,6 +95,19 @@ header ul li button {
   justify-content: flex-start;
   align-items: stretch;
   gap: 2rem;
+}
+.list .write-btn {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 5rem;
+  background-color: #EF4343;
+  border-radius: 50%;
 }
 .list li {
   min-width: 30rem;
@@ -179,6 +192,44 @@ header ul li button {
   font-weight: 700;
   font-size: 1.5rem;
   border: none;
+}
+
+.loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.loading div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #EF4343;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.loading div h1 {
+  font-size: 5rem;
+  font-weight: 700;
+}
+.loading div p {
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+}
+.loading div button {
+  font-size: 2rem;
+  font-weight: 800;
+  width: 30rem;
+  height: 5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #19274A;
+  color: #ffffff;
 }
 
 /*# sourceMappingURL=style.css.map */
