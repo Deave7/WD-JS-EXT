@@ -12,4 +12,11 @@ domElements.writeBtns.forEach(btn =>  {
     })
 })
 
+domElements.removeBtns.forEach(function(button) {
+    button.addEventListener('click', function() {
+        deleteNote(button)
+    })
+})
+
+
 createNote()

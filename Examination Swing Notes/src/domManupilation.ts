@@ -15,68 +15,74 @@ export const showHeader = (): void => {
 }
 
 export const createNote = (): void => {
-    const li: HTMLElement = document.createElement('li')
+    const li: HTMLLIElement = document.createElement('li')
     domElements.noteList.appendChild(li)
 
     const article: HTMLElement = document.createElement('article')
     article.classList.add('note')
     li.appendChild(article)
 
-    const noteTopDiv: HTMLElement = document.createElement('div')
+    const noteTopDiv: HTMLDivElement = document.createElement('div')
     noteTopDiv.classList.add('note-top')
     article.appendChild(noteTopDiv);
 
-    const p: HTMLElement = document.createElement('p')
+    const p: HTMLParagraphElement = document.createElement('p')
     p.classList.add('date')
     noteTopDiv.appendChild(p)
 
-    const noteInfoDiv = document.createElement('div')
+    const noteInfoDiv: HTMLDivElement = document.createElement('div')
     noteInfoDiv.classList.add('note-info')
     article.appendChild(noteInfoDiv)
 
-    const textArea = document.createElement('textarea')
+    const textArea: HTMLTextAreaElement = document.createElement('textarea')
     textArea.cols = 33
     textArea.rows = 8
     noteInfoDiv.appendChild(textArea)
 
-    const noteBottomDiv = document.createElement('div')
+    const noteBottomDiv: HTMLDivElement = document.createElement('div')
     noteBottomDiv.classList.add('note-bottom')
     article.appendChild(noteBottomDiv)
 
-    const containerDiv = document.createElement('div')
+    const containerDiv: HTMLDivElement = document.createElement('div')
     noteBottomDiv.appendChild(containerDiv)
 
-    const flexDivOne = document.createElement('div')
+    const flexDivOne: HTMLDivElement = document.createElement('div')
     flexDivOne.classList.add('flex-container-1')
     containerDiv.appendChild(flexDivOne)
 
-    const image = document.createElement('img')
+    const image: HTMLImageElement = document.createElement('img')
     image.src = './assets/Rectangle 3.svg'
     image.alt = 'line'
     flexDivOne.appendChild(image)
 
-    const authorP = document.createElement('p')
+    const authorP: HTMLParagraphElement = document.createElement('p')
     authorP.classList.add('author')
     flexDivOne.appendChild(authorP)
 
-    const flexDivTwo = document.createElement('div')
+    const flexDivTwo: HTMLDivElement = document.createElement('div')
     flexDivTwo.classList.add('flex-container-2')
     containerDiv.appendChild(flexDivTwo)
 
-    const updateBtn = document.createElement('button')
+    const updateBtn: HTMLButtonElement = document.createElement('button')
     updateBtn.textContent = 'Update'
     updateBtn.classList.add('button')
     updateBtn.classList.add('update-btn')
     flexDivTwo.appendChild(updateBtn)
 
-    const removeBtn = document.createElement('button')
+    const removeBtn: HTMLButtonElement = document.createElement('button')
     removeBtn.textContent = 'Remove'
     removeBtn.classList.add('button')
     removeBtn.classList.add('remove-btn')
     flexDivTwo.appendChild(removeBtn)
+
+    domElements.updateRemoveBtns()
+    domElements.updateUpdateBtns()
 }
 
-export const deleteNote = (noteID: string): void => {
-    const li = document.getElementById(noteID) as HTMLElement
-    li.remove()
+export const deleteNote = (clickedButton: HTMLButtonElement): void => {
+    const noteToDelete: HTMLElement | null = clickedButton?.closest('li')
+
+    if (noteToDelete) {
+        noteToDelete.remove()
+    }
 }
