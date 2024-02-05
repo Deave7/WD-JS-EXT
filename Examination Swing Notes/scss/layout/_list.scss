@@ -28,9 +28,15 @@
         @include mixin.list-mix;
         
         .note-top {
-            color: color.$text-dark-secondary;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
+            .title {
+                margin-top: 1rem;
+                @include mixin.set-font(1.5rem, 700)
+            }
+            .date {
+                color: color.$text-dark-secondary;
+                margin-bottom: 1rem;
+                
+            }
         }
 
         .note-info {

@@ -1,13 +1,11 @@
 import * as domManipulation from './domManupilation';
 import * as eventListeners from './eventListeners'
 import * as api from './api'
-import {CreateNote} from './createNoteInterface'
+import { CreateNote } from './createNoteInterface'
 import { UpdateNote } from './updateNoteInterface';
 
 
 eventListeners.setButtons()
-domManipulation.createNote()
-
 
 const note: CreateNote = {
     username: 'Deave',
@@ -19,7 +17,4 @@ const updateNote: UpdateNote = {
     note: 'Kalle är coolastastast'
 }
 
-
-
-
-api.getNotes('deave')
+domManipulation.getNoteID('Deave')

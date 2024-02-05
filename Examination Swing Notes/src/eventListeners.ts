@@ -1,5 +1,7 @@
 import * as domElements from './domElements';
 import * as domManipulation from './domManupilation';
+import * as api from './api';
+import { CreateNote } from './createNoteInterface';
 
 export const setButtons = (): void =>  {
 
@@ -19,7 +21,14 @@ export const setButtons = (): void =>  {
     })
 
     domElements.publishBtn.addEventListener("click", function() {
-        
+        const input:(string | null | undefined)[] = domManipulation.saveInput()
+        domManipulation.clearInput()
+        if (input.every(value => value === null)) {
+            alert('No note was created')
+        }
+        else {
+            api.postNote(domManipulation.organizeInput(input))
+            domManipulation.goToView('list')
+        }
     })
 }
-

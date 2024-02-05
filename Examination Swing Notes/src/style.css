@@ -121,10 +121,14 @@ header ul li button {
   margin: 0;
   padding: 0;
 }
-.list li .note-top {
+.list li .note-top .title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.list li .note-top .date {
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 .list li .note-info textarea {
   resize: none;
@@ -193,6 +197,7 @@ header ul li button {
   min-width: 25rem;
   min-height: 4rem;
   margin-bottom: 2rem;
+  color: #ffffff;
 }
 .write button {
   min-width: 25rem;

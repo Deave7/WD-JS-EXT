@@ -11,3 +11,8 @@ export const header = document.querySelector('header') as HTMLElement;
 
 //list 
 export const noteList = document.querySelector('.note-list') as HTMLElement;
+
+//input 
+export const writeInput = document.querySelector('.note-field') as HTMLTextAreaElement
+export const titleInput = document.querySelector('.title-input') as HTMLInputElement
+export const usernameInput = document.querySelector('.username-input') as HTMLInputElement
