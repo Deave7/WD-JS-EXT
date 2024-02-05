@@ -1,5 +1,4 @@
 import * as domElements from './domElements'
-import * as eventListeners from './eventListeners';
 
 export const goToView = (targetScreen: string): void => {
     const sectionsToHide = document.querySelectorAll(`section:not(#header):not(#${targetScreen})`) as NodeListOf<HTMLElement>
@@ -69,8 +68,8 @@ export const createNote = (): void => {
     updateBtn.classList.add('button')
     updateBtn.classList.add('update-btn')
     flexDivTwo.appendChild(updateBtn)
-    updateBtn.addEventListener("click", function() {
-    
+    updateBtn.addEventListener("click", function(): void {
+        updateNote(this);
     })
 
     const removeBtn: HTMLButtonElement = document.createElement('button')
@@ -78,17 +77,26 @@ export const createNote = (): void => {
     removeBtn.classList.add('button')
     removeBtn.classList.add('remove-btn')
     flexDivTwo.appendChild(removeBtn)
-    removeBtn.addEventListener('click', function() {
+    removeBtn.addEventListener('click', function(): void {
         deleteNote(this);
     })
 
 }
 
-export const deleteNote = (clickedButton: HTMLButtonElement): void => {
+const deleteNote = (clickedButton: HTMLButtonElement): void => {
     const noteToDelete: HTMLElement | null = clickedButton?.closest('li')
 
     if (noteToDelete) {
         noteToDelete.remove()
     }
 }
+
+const updateNote = (clickedButton: HTMLButtonElement): void => {
+    const noteToUpdate: HTMLElement | null = clickedButton?.closest('textarea')
+
+    if(noteToUpdate) {
+
+    }
+}
+
 

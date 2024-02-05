@@ -163,6 +163,14 @@ header ul li button {
   justify-content: center;
   align-items: center;
 }
+.write input {
+  min-width: 25rem;
+  min-height: 4rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-family: "PT Sans", sans-serif;
+  border: none;
+}
 .write .note-field {
   min-width: 25rem;
   min-height: 30rem;

@@ -14,5 +14,12 @@ export const setButtons = (): void =>  {
         })
     })
     
+    domElements.listHeaderBtn.addEventListener("click", function() {
+        domManipulation.goToView('list')
+    })
+
+    domElements.publishBtn.addEventListener("click", function() {
+        
+    })
 }
 

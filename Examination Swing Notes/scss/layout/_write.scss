@@ -4,7 +4,15 @@
     height: 100%;
     @include mixin.flex-settings(flex, column, center, center);
     
-    
+    input {
+        min-width: 25rem;
+        min-height: 4rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'PT Sans', sans-serif;
+        border: none;
+    }
+
     .note-field {
         min-width: 25rem;
         min-height: 30rem;

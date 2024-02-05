@@ -16,17 +16,16 @@
       </div>
     </section>
 
-    <header class="header hidden">
+    <header class="header">
       <h2>Swing Notes</h2>
       <ul>
-        <li></li>
         <li><button id="list-header-btn" class="button">LIST</button></li>
         <li><button class="write-btn button">WRITE</button></li>
       </ul>
     </header>
 
 
-    <section class="list">
+    <section class="list hidden">
       <ul class="note-list">
         <li id="1">
           <article class="note">
@@ -56,8 +55,9 @@
       <div class="write-btn"><img src="assets/pen.svg" height="30px" alt="pen"></div>
     </section>
 
-    <section class="write hidden">
-      <textarea class="note-field" cols="30" rows="10" placeholder="Write your note here.."></textarea>
+    <section class="write">
+      <input type="text" placeholder="Title">
+      <textarea class="note-field" cols="30" rows="10" placeholder="Note"></textarea>
       <div>
         <p>Username</p>
         <input type="text" class="username-input">
