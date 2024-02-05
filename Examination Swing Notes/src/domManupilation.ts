@@ -1,4 +1,5 @@
 import * as domElements from './domElements'
+import * as eventListeners from './eventListeners';
 
 export const goToView = (targetScreen: string): void => {
     const sectionsToHide = document.querySelectorAll(`section:not(#header):not(#${targetScreen})`) as NodeListOf<HTMLElement>
@@ -68,15 +69,19 @@ export const createNote = (): void => {
     updateBtn.classList.add('button')
     updateBtn.classList.add('update-btn')
     flexDivTwo.appendChild(updateBtn)
+    updateBtn.addEventListener("click", function() {
+    
+    })
 
     const removeBtn: HTMLButtonElement = document.createElement('button')
     removeBtn.textContent = 'Remove'
     removeBtn.classList.add('button')
     removeBtn.classList.add('remove-btn')
     flexDivTwo.appendChild(removeBtn)
+    removeBtn.addEventListener('click', function() {
+        deleteNote(this);
+    })
 
-    domElements.updateRemoveBtns()
-    domElements.updateUpdateBtns()
 }
 
 export const deleteNote = (clickedButton: HTMLButtonElement): void => {
@@ -86,3 +91,4 @@ export const deleteNote = (clickedButton: HTMLButtonElement): void => {
         noteToDelete.remove()
     }
 }
+

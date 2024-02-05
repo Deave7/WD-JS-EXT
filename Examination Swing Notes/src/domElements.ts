@@ -11,13 +11,3 @@ export const header = document.querySelector('header') as HTMLElement;
 
 //list 
 export const noteList = document.querySelector('.note-list') as HTMLElement;
-
-export const updateRemoveBtns = () => {
-   removeBtns = document.querySelectorAll('.remove-btn')
-} 
-
-export const updateUpdateBtns = () => {
-    updateBtns = document.querySelectorAll('.update-btn')
-}
-
-//Listerna på update och remove btns måste uppdateras på något sätt. 
