@@ -17,7 +17,6 @@ export const postNote = async (note: CreateNote): Promise<void> => {
             data: JSON.stringify(note),
         });
 
-        console.log('Post request successful:', response.data);
         const info = await getNoteInfo(note)
         domManipulation.createNote(note, info!)
         
@@ -34,7 +33,6 @@ export const getNotes = async (userName:string) => {
             url: `${url}/${userName}`,
           });
 
-           console.log(response)
            return response;
     } catch (error) {
         console.error('Error in getNote: ', error)
@@ -62,9 +60,7 @@ export const updateNote = (note: UpdateNote, id:string): void => {
             data: JSON.stringify(note),
             
         })
-        .then(function (response) {
-            console.log(response)
-          });
+
     } catch (error) {
         console.error('Error in updateNote: ', error)
     }
@@ -76,9 +72,6 @@ export const deleteNote = (id:string): void => {
             method: 'delete',
             url: `${url}/${id}`,
         })
-        .then(function (response) {
-            console.log(response)
-          });
     } catch (error) {
         console.error('Error in deleteNote: ', error)
     }

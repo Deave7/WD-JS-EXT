@@ -1,7 +1,6 @@
 import * as domElements from './domElements';
 import * as domManipulation from './domManupilation';
 import * as api from './api';
-import { CreateNote } from './interfaces/createNoteInterface';
 
 export const setButtons = (): void =>  {
 
