@@ -1,5 +1,5 @@
-<h1> Välkommen till min examinations uppgift i kursen WD-JS-EXT <h1>
-<h2> Gjord av: Gustav Syrén <h2>
+#Välkommen till min examinations uppgift i kursen WD-JS-EXT
+###Gjord av: Gustav Syrén
 
-<p> Uppgiften handlar om att skapa en webbapp för att kunna skriva anteckningar. De laddas även upp till ett API så att du kan hämta hem dem via ditt användarnamn. <p>
-<p> Länk till uppgiften: <link>https://gist.github.com/Andreas-Zocom/a617323c6f71e8cd1d724cd6ee949d96#file-swing-notes-frontend-exercise-md<link>
+- Uppgiften handlar om att skapa en webbapp för att kunna skriva anteckningar. De laddas även upp till ett API så att du kan hämta hem dem via ditt användarnamn.
+- Länk till uppgiften: <link>https://gist.github.com/Andreas-Zocom/a617323c6f71e8cd1d724cd6ee949d96#file-swing-notes-frontend-exercise-md
