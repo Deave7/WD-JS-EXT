@@ -14,9 +14,11 @@ export const goToView = (targetScreen: string): void => {
     }
 }
 
-export const showHeader = (): void => {
-    domElements.header?.classList.remove('hidden');
-}
+//GENERICS HÄR :) 
+export const showElement = <T extends HTMLElement>(element: T, className: string): void => {
+    element?.classList.remove(className);
+};
+
 
 export const createNote = (note: CreateNote, info: string[]): void => {
     const li: HTMLLIElement = document.createElement('li')

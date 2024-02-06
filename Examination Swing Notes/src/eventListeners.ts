@@ -6,7 +6,7 @@ export const setButtons = (): void =>  {
 
     domElements.startBtn.addEventListener("click", function() {
         domManipulation.goToView('list')
-        domManipulation.showHeader()
+        domManipulation.showElement(domElements.header, 'hidden')
         api.getApiNotes()
     })
     

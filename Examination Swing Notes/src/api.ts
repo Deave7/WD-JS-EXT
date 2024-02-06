@@ -6,9 +6,9 @@ import * as domManipulation from './domManupilation.ts'
 const url: string = 'https://o6wl0z7avc.execute-api.eu-north-1.amazonaws.com/api/notes'
 
 
-export const postNote = async (note: CreateNote): Promise<void> => {
+export const postNote = async (note: CreateNote) => {
     try {
-        const response = await axios({
+        await axios({
             method: 'post',
             url: url,
             headers: {
