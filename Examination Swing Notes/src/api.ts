@@ -1,6 +1,7 @@
 import axios from 'axios';
-import {CreateNote} from './createNoteInterface.ts'
-import {UpdateNote} from './updateNoteInterface.ts'
+import {CreateNote} from './interfaces/createNoteInterface.ts'
+import {UpdateNote} from './interfaces/updateNoteInterface.ts'
+import { ApiData } from './interfaces/ApiData.ts';
 import * as domManipulation from './domManupilation.ts'
 const url: string = 'https://o6wl0z7avc.execute-api.eu-north-1.amazonaws.com/api/notes'
 
@@ -17,29 +18,40 @@ export const postNote = async (note: CreateNote): Promise<void> => {
         });
 
         console.log('Post request successful:', response.data);
-        await domManipulation.createNote(note)
-
+        const info = await getNoteInfo(note)
+        domManipulation.createNote(note, info!)
+        
     } catch (error) {
 
         console.error('Error in postNote: ', error);
     }
 };
 
-export const getNotes = (userName:string) => {
+export const getNotes = async (userName:string) => {
     try {
-        axios({
+        const response = await axios({
             method: 'get',
             url: `${url}/${userName}`,
-          })
-            .then(function (response) {
-              console.log(response)
-            });
+          });
+
+           console.log(response)
+           return response;
     } catch (error) {
         console.error('Error in getNote: ', error)
     }
 }
 
-export const updateNote = (note: UpdateNote, id:string) => {
+export const getApiNotes = async () => {
+    const username = domManipulation.saveLoadingUsernameInput()
+    const response = await getNotes(username)
+    const data: ApiData[] = response?.data.notes;
+
+    data.forEach(note => {
+        domManipulation.createApiNote(note)
+    });
+}
+
+export const updateNote = (note: UpdateNote, id:string): void => {
     try {
         axios({
             method: 'put',
@@ -58,7 +70,7 @@ export const updateNote = (note: UpdateNote, id:string) => {
     }
 }
 
-export const deleteNote = (id:string) => {
+export const deleteNote = (id:string): void => {
     try {
         axios({
             method: 'delete',
@@ -72,11 +84,28 @@ export const deleteNote = (id:string) => {
     }
 }
 
-export const getNoteID = async (userName: string) => {
+export const getNoteInfo = async (input: CreateNote) => {
     try {
-        const response: any = await getNotes(userName)
+        const response = await getNotes(input['username'])
+        const notes = response?.data.notes
+        
+        const note = notes.find((note:any) => note.note === input['note'] && note.title === input['title'] )
+        
+        if (note) {
+            const id: string = note.id
+            const date: string = note.createdAt
+            const info: string[] = [id, date]
+            return info;
+            
+        }
+        else {
+            console.log('Note not found')
+        }
     }
-    //starta här imorgon 
+    catch (error) {
+        console.error('Error in getNoteID', error)
+    }
+    
  }
  
  

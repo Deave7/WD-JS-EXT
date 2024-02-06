@@ -95,6 +95,9 @@ header ul li button {
   justify-content: flex-start;
   align-items: stretch;
   gap: 2rem;
+  overflow-y: auto;
+  max-height: 50rem;
+  background-color: #d6dee1;
 }
 .list .write-btn {
   position: absolute;
@@ -223,6 +226,13 @@ header ul li button {
   gap: 2rem;
   padding: 1rem;
   border-radius: 1rem;
+}
+.loading div input {
+  min-width: 30rem;
+  min-height: 4rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: none;
 }
 .loading div h1 {
   font-size: 5rem;

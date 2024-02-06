@@ -7,8 +7,10 @@
     ul {
         @include mixin.flex-settings(flex, column);
         gap: 2rem;
+        overflow-y: auto;
+        max-height: 50rem;
+        background-color: #d6dee1;
     }
-
     .write-btn {
         position: absolute;
         right: 1rem;

@@ -8,10 +8,11 @@
   </head>
   <body>
 
-    <section class="loading hidden">
+    <section class="loading">
       <div>
         <h1>Swing Notes</h1>
         <p>Welcome! <br> Please use this app to create notes for yourself!</p>
+        <input id="loading-username-input" type="text" placeholder="Username">
         <button id="start-btn" class="button">Start</button>
       </div>
     </section>
@@ -27,31 +28,7 @@
 
     <section class="list hidden">
       <ul class="note-list">
-        <li>
-          <article class="note">
-            <div class="note-top">
-              <p class="title">TITLE</p>
-              <p class="date">monday 3 Nov</p>
-            </div>
-
-            <div class="note-info">
-              <textarea cols="33" rows="8"></textarea>
-            </div>
-
-            <div class="note-bottom">
-              <div>
-                <div class="flex-container-1">
-                  <img src="./assets/Rectangle 3.svg" alt="line">
-                  <p class="author">Author</p>
-                </div>
-                <div class="flex-container-2">
-                  <button class="button update-btn">Update</button>
-                  <button class="button remove-btn">Remove</button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </li>
+        
       </ul>
       <div class="write-btn"><img src="assets/pen.svg" height="30px" alt="pen"></div>
     </section>

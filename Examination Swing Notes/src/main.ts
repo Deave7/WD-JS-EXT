@@ -1,8 +1,8 @@
 import * as domManipulation from './domManupilation';
 import * as eventListeners from './eventListeners'
 import * as api from './api'
-import { CreateNote } from './createNoteInterface'
-import { UpdateNote } from './updateNoteInterface';
+import { CreateNote } from './interfaces/createNoteInterface'
+import { UpdateNote } from './interfaces/updateNoteInterface';
 
 
 eventListeners.setButtons()
@@ -17,4 +17,5 @@ const updateNote: UpdateNote = {
     note: 'Kalle är coolastastast'
 }
 
-domManipulation.getNoteID('Deave')
+
+api.getNotes('Deave')

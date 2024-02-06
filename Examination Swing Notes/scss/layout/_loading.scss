@@ -13,6 +13,14 @@
         padding: 1rem;
         border-radius: 1rem;
 
+        input {
+            min-width: 30rem;
+            min-height: 4rem;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: none;
+        }
+
         h1 {
             @include mixin.set-font(5rem,700);
         }

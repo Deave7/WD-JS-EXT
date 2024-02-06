@@ -16,3 +16,4 @@ export const noteList = document.querySelector('.note-list') as HTMLElement;
 export const writeInput = document.querySelector('.note-field') as HTMLTextAreaElement
 export const titleInput = document.querySelector('.title-input') as HTMLInputElement
 export const usernameInput = document.querySelector('.username-input') as HTMLInputElement
+export const loadingUsernameInput = document.getElementById('loading-username-input') as HTMLInputElement
