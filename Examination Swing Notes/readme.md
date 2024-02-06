@@ -2,4 +2,5 @@
 ### Gjord av: Gustav Syrén
 
 - Uppgiften handlar om att skapa en webbapp för att kunna skriva anteckningar. De laddas även upp till ett API så att du kan hämta hem dem via ditt användarnamn.
+- Uppgiften är gjord med Vite, TS, Axios och Sass
 - Länk till uppgiften: https://gist.github.com/Andreas-Zocom/a617323c6f71e8cd1d724cd6ee949d96#file-swing-notes-frontend-exercise-md
